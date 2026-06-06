@@ -6,6 +6,8 @@ body{
 
 }
 
+/* fondo estrellado xd */
+
 body::before{
 
     content:"";
@@ -121,8 +123,7 @@ aside{
 
 .btn{
 
-    transition:
-        transform .3s;
+    transition: transform .3s;
 
 }
 

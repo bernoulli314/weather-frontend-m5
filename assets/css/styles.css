@@ -1,17 +1,24 @@
-/* color de fondo de toda la página */
-body {
-    background-color: lightblue;
+body{
+    background:#ffffff;
+    font-family:Consolas,sans-serif;
 }
 
-/* color de los títulos */
-h1, h2, h3, h4, h5, h6 {
-    color: red;
-}
+.card{
+    padding:25px;
 
-/* Estilos para la imagen */
-img {
-    width: 400px;
-    height: 300px;
-    display: block;
-    margin: auto;
+    border-radius:20px;
+    border:5px solid rgb(8, 0, 65);
+
+    background:linear-gradient(
+        135deg,
+        #ac6cff,
+        #fed3f8
+    );
+
+    color:rgb(255, 255, 255);
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0, 35, 133, 0.4);
+
+    transition:transform .3s, box-shadow .3s;
 }

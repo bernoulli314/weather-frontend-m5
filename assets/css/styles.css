@@ -1,0 +1,17 @@
+/* color de fondo de toda la página */
+body {
+    background-color: lightblue;
+}
+
+/* color de los títulos */
+h1, h2, h3, h4, h5, h6 {
+    color: red;
+}
+
+/* Estilos para la imagen */
+img {
+    width: 400px;
+    height: 300px;
+    display: block;
+    margin: auto;
+}

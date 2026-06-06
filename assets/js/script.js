@@ -1,101 +1,113 @@
-const contenedor =
-document.getElementById("contenedor_planetas");
+document.addEventListener("DOMContentLoaded", () => {
+    const contenedor = document.getElementById("contenedor_planetas");
 
-const botonSS = document.querySelector(".btn-ss");
+    const botonSS = document.querySelector(".btn-ss");
+    const botonExo = document.querySelector(".btn-exo");
 
-const botonExo = document.querySelector(".btn-exo");
+    function mostrarPlanetas(lista){
 
-function mostrarPlanetas(lista){
+            // limpiar cards anteriores
 
-        // limpiar cards anteriores
+            contenedor.innerHTML="";
 
-        contenedor.innerHTML="";
+            lista.forEach(planeta=>{
 
-        lista.forEach(planeta=>{
+                const card = `
 
-            const card = `
+                <div class="col">
 
-            <div class="col">
+                    <div class="card h-100">
 
-                <div class="card h-100">
+                        <div class="card-body">
 
-                    <div class="card-body">
+                            <h5>
 
-                        <h5>
+                                ${planeta.nombre}
 
-                            ${planeta.nombre}
+                            </h5>
 
-                        </h5>
+                            <div class="icono-planeta">
 
-                        <div class="icono-planeta">
+                                ${planeta.icono}
 
-                            ${planeta.icono}
+                            </div>
+
+                            <div class="temperatura">
+
+                                ${planeta.temp}
+
+                            </div>
+
+                            <p class="estado">
+
+                                ${planeta.estado}
+
+                            </p>
+
+                            <a
+                            href="detalle.html?id=${planeta.id}"
+                            class="btn btn-outline-info">
+
+                                Ver detalle
+
+                            </a>
 
                         </div>
-
-                        <div class="temperatura">
-
-                            ${planeta.temp}
-
-                        </div>
-
-                        <p class="estado">
-
-                            ${planeta.estado}
-
-                        </p>
-
-                        <a
-                        href="detalle.html?id=${planeta.id}"
-                        class="btn btn-outline-info">
-
-                            Ver detalle
-
-                        </a>
 
                     </div>
 
                 </div>
 
-            </div>
+                `;
 
-            `;
+                contenedor.insertAdjacentHTML(
+                    "beforeend",
+                    card
+                );
 
-            contenedor.insertAdjacentHTML(
-                "beforeend",
-                card
-            );
+            });
 
-        });
+    }
+    mostrarPlanetas(planetasActuales);
 
-}
-mostrarPlanetas(planetasActuales);
+    botonSS.addEventListener(
+            "click",
+            ()=>{
 
-botonSS.addEventListener(
-        "click",
-        ()=>{
+                planetasActuales =
+                planetas_ss;
 
-            planetasActuales =
-            planetas_ss;
+                mostrarPlanetas(
+                    planetasActuales
+                );
 
-            mostrarPlanetas(
-                planetasActuales
-            );
-
-        }
-    );
+            }
+        );
 
 
-botonExo.addEventListener(
-        "click",
-        ()=>{
+    botonExo.addEventListener(
+            "click",
+            ()=>{
 
-            planetasActuales =
-            exoplanetas;
+                planetasActuales =
+                exoplanetas;
 
-            mostrarPlanetas(
-                planetasActuales
-            );
+                mostrarPlanetas(
+                    planetasActuales
+                );
 
-        }
-    );
+            }
+        );
+
+    document.getElementById("buscar").addEventListener("keyup", function () {
+
+        const texto = this.value.toLowerCase();
+
+        const filtrados = planetasActuales.filter(
+            p =>p.nombre.toLowerCase().includes(texto)
+        );
+
+        mostrarPlanetas(filtrados);
+    });
+
+});

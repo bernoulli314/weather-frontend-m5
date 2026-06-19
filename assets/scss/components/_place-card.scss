@@ -1,0 +1,62 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.place-card {
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            v.$bg-main,
+            v.$bg-secondary
+        );
+
+    color: v.$text-color;
+
+    text-align: center;
+
+    border: none;
+    border-radius: v.$radius;
+
+    box-shadow: v.$shadow-card;
+
+    transition:
+        transform 1.3s,
+        box-shadow 1.3s;
+
+    &:hover {
+
+        transform: translateY(-20px);
+
+        box-shadow: v.$shadow-card-hover;
+    }
+
+    &__name {
+
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    &__icon {
+
+        font-size: 6rem;
+        margin-bottom: 5px;
+    }
+
+    &__temp {
+
+        font-size: 2rem;
+        font-weight: bold;
+        color: v.$temp-color;
+
+        margin-bottom: 10px;
+    }
+
+    &__status {
+
+        opacity: .8;
+        margin-bottom: 20px;
+    }
+}

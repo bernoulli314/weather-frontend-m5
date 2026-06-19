@@ -1,10 +1,11 @@
 @use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
 
 body {
 
-    background: $bg-main;
+    background: v.$bg-main;
     font-family: Consolas, sans-serif;
-    color: $text-color;
+    color: v.$text-color;
 
     &::before {
 

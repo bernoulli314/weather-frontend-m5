@@ -1,0 +1,12 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.btn {
+
+    transition: transform .3s;
+
+    &:hover {
+
+        transform: scale(1.05);
+    }
+}

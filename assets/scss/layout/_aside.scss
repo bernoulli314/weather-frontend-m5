@@ -1,0 +1,20 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.aside {
+
+    background: v.$bg-secondary;
+    color: v.$text-color;
+
+    &__titulo {
+        font-weight: bold;
+    }
+
+    &__texto {
+        line-height: 1.5;
+    }
+
+    &__img {
+        margin-top: 1rem;
+    }
+}

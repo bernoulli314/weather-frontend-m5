@@ -1,0 +1,139 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.carrusel{
+
+    padding:4rem 2rem;
+    text-align:center;
+
+    &__contenedor{
+
+        position:relative;
+        min-height:300px;
+
+    }
+
+    &__item{
+
+        display:none;
+        animation:fade .4s ease;
+
+        min-height:50vh;
+
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+        position:relative;
+
+        &::before{
+
+        content:"";
+
+        position:absolute;
+
+        inset:0;
+
+        background:rgba(0, 2, 27, 0.788);
+
+    }
+
+    }
+
+    &__item--activo{
+
+        display:block;
+
+    }
+
+    &__titulo{
+
+        @include m.titulo-seccion;
+
+    }
+
+    &__descripcion{
+
+        font-size:1.2rem;
+        margin-bottom:2rem;
+
+        position:relative;
+        z-index:1;
+
+    }
+
+    &__nav{
+
+        display:flex;
+        justify-content:center;
+        gap:1rem;
+
+    }
+
+    &__nav-link{
+
+        width:40px;
+        height:40px;
+
+        border:none;
+        border-radius:50%;
+
+        cursor:pointer;
+
+        transition:.3s;
+
+        &:hover{
+
+            transform:scale(1.1);
+
+        }
+
+    }
+
+    &__item--1{
+
+        background-image:url('../img/kzn_2806.png');
+
+    }
+
+    &__item--2{
+
+        background-image:url('../img/kzn_2806.png');
+
+    }
+
+    &__item--3{
+
+        background-image:url('../img/kzn_2806.png');
+
+    }
+
+    &__item--4{
+
+        background-image:url('../img/kzn_2806.png');
+
+    }
+
+    &__item--5{
+
+        background-image:url('../img/kzn_2806.png');
+
+    }
+
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}

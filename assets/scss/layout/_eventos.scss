@@ -1,0 +1,45 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.eventos{
+
+    padding:4rem 2rem;
+
+    &__titulo{
+
+        @include m.titulo-seccion;
+
+    }
+
+    &__logos{
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:2rem;
+        flex-wrap:wrap;
+
+    }
+
+    &__link{
+
+        transition:.3s ease;
+
+        &:hover{
+
+            transform:scale(1.1);
+            opacity:.9;
+
+        }
+
+    }
+
+    &__logo{
+
+        width:150px;
+        height:auto;
+        display:block;
+
+    }
+
+}

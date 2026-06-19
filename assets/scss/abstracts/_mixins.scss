@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as v;
+
+@mixin boton($fondo) {
+  background: $fondo;
+  color: white;
+  border: 0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  &:hover{
+        opacity:.8;
+        transform:scale(1.05);
+        font-weight:bold;
+    }
+
+
+}
+
+@mixin titulo-seccion {
+
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:1rem;
+
+    position:relative;
+    z-index:1;
+
+}

@@ -16,29 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="col">
 
-                    <div class="card h-100">
+                    <div class="card h-100 place-card">
 
-                        <div class="card-body">
+                        <div class="card-body place-card__body">
 
-                            <h5>
+                            <h5 class="place-card__name">
 
                                 ${planeta.nombre}
 
                             </h5>
 
-                            <div class="icono-planeta">
+                            <div class="icono-planeta place-card__icon">
 
                                 ${planeta.icono}
 
                             </div>
 
-                            <div class="temperatura">
+                            <div class="temperatura place-card__temp">
 
                                 ${planeta.temp}
 
                             </div>
 
-                            <p class="estado">
+                            <p class="estado place-card__status">
 
                                 ${planeta.estado}
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             <a
                             href="detalle.html?id=${planeta.id}"
-                            class="btn btn-outline-info">
+                            class="btn btn-outline-info place-card__link">
 
                                 Ver detalle
 

@@ -1,0 +1,79 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.fechas{
+
+    padding:2rem 1rem;
+
+    &__titulo{
+
+        @include m.titulo-seccion;
+
+    }
+
+    &__flyers{
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(auto-fit, minmax(200px, 1fr));
+
+        gap:1rem;
+
+    }
+
+    &__fecha{
+
+        background-color:v.$color-primario;
+        border-radius:v.$radio;
+        overflow:hidden;
+        text-align:center;
+
+        box-shadow:
+            0 4px 12px rgba(0,0,0,.2);
+
+        transition:.3s ease;
+
+        &:hover{
+
+            transform:translateY(-8px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.35);
+
+        }
+
+    }
+
+    &__link{
+
+        display:block;
+
+    }
+
+    &__flyer{
+
+        width:100%;
+        height:auto;
+
+        display:block;
+
+    }
+
+    &__nombre{
+
+        font-size:1.4rem;
+        color:v.$color-destacado;
+        margin:1rem 0 .5rem;
+
+    }
+
+    &__descripcion{
+
+        color:v.$color-texto;
+        opacity:.8;
+        padding:0 1rem 1.5rem;
+
+    }
+
+}

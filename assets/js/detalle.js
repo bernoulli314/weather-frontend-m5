@@ -39,26 +39,43 @@ document.addEventListener("DOMContentLoaded", ()=>{
             if (temperatura <= -5){
                 diasCongelados++;
             }
-            if (-5 < temperatura && temperatura <= 100){
+            else if (-5 < temperatura && temperatura <= 100){
                 diasHabitables++;
             }
-            if (100 < temperatura && temperatura <= 2000){
+            else if (100 < temperatura && temperatura <= 2000){
                 diasVolcanicos++;
             }
-            if (2000 < temperatura && temperatura <= 6000){
+            else if (2000 < temperatura && temperatura <= 6000){
                 diasEstelares++;
             }
-            if (6000 < temperatura){
+            else {
                 diasPlasma++;
-            }
+            };
         }
 
         const categorias = {
-            "Temperaturas donde predominan hielos, océanos congelados y atmósferas extremadamente frías": diasCongelados,
-            "Zona compatible con agua líquida y condiciones similares a las de la Tierra.": diasHabitables,
-            "Rocas incandescentes, volcanismo extremo y ambientes incompatibles con la vida terrestre.": diasVolcanicos,
-            "Temperaturas comparables a las superficies de muchas estrellas, donde la materia comienza a comportarse de formas extremas.": diasEstelares,
-            "Materia completamente ionizada, radiación intensa y condiciones propias de estrellas muy calientes y fenómenos energéticos.": diasPlasma
+            "Mundo Congelado": diasCongelados,
+            "Temperaturas Habitables": diasHabitables,
+            "Infierno Volcánico": diasVolcanicos,
+            "Dominio Estelar": diasEstelares,
+            "Reino del Plasma": diasPlasma
+        };
+
+        const descripciones = {
+            "Mundo Congelado":
+                "Temperaturas donde predominan hielos, océanos congelados y atmósferas extremadamente frías.",
+
+            "Temperaturas Habitables":
+                "Zona compatible con agua líquida y condiciones similares a las de la Tierra.",
+
+            "Infierno Volcánico":
+                "Rocas incandescentes, volcanismo extremo y ambientes incompatibles con la vida terrestre.",
+
+            "Dominio Estelar":
+                "Temperaturas comparables a las superficies de muchas estrellas, donde la materia comienza a comportarse de formas extremas.",
+
+            "Reino del Plasma":
+                "Materia completamente ionizada, radiación intensa y condiciones propias de estrellas muy calientes y fenómenos energéticos."
         };
 
         let categoriaMayor = "";
@@ -82,16 +99,51 @@ document.addEventListener("DOMContentLoaded", ()=>{
             diasVolcanicos: diasVolcanicos,
             diasEstelares: diasEstelares,
             diasPlasma: diasPlasma,
-            resumen: categoriaMayor
+            resumen: descripciones[categoriaMayor]
         };
     };
 
     let estadisticas = estadisticasPlaneta(planeta.pronostico);
-
-    console.log(estadisticas.promedio);
     console.log(estadisticas.tmax);
-    console.log(estadisticas.tmin);
 
+    const categorias = [
+        {
+            nombre: "🧊 Mundo Congelado (0–273 K)",
+            dias: estadisticas.diasCongelados
+        },
+        {
+            nombre: "🌍 Temperaturas Habitables (274–373 K)",
+            dias: estadisticas.diasHabitables
+        },
+        {
+            nombre: "🌋 Infierno Volcánico (374–1500 K)",
+            dias: estadisticas.diasVolcanicos
+        },
+        {
+            nombre: "☀️ Dominio Estelar (1501–6000 K)",
+            dias: estadisticas.diasEstelares
+        },
+        {
+            nombre: "⚛️ Reino del Plasma (6001–12000 K)",
+            dias: estadisticas.diasPlasma
+        }
+    ];
+    
+    let categoriasHTML = "";
+
+    categorias.forEach(categoria => {
+
+        if (categoria.dias > 0) {
+
+            categoriasHTML += `
+                <p class="weather-content__texto">
+                    ${categoria.nombre}: ${categoria.dias}
+                </p>
+            `;
+
+        }
+
+    });
 
     if(planeta){
 
@@ -139,6 +191,47 @@ document.addEventListener("DOMContentLoaded", ()=>{
             ${planeta.descripcion}
 
         </p>
+
+        <div class="estadisticas-temp">
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+                    <div class="place-card text-center">
+                        <div class="card-body">
+                            <h4>🌡️ Promedio</h4>
+                            <h2>${estadisticas.promedio} °C</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="place-card text-center">
+                        <div class="card-body">
+                            <h4>🔺 Máxima</h4>
+                            <h2>${estadisticas.tmax} °C</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="place-card text-center">
+                        <div class="card-body">
+                            <h4>🔻 Mínima</h4>
+                            <h2>${estadisticas.tmin} °C</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        ${categoriasHTML}
+
+        <h4 class="weather-content__texto">
+            ${estadisticas.resumen}
+        </h4>
 
         `;
 

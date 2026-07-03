@@ -6,12 +6,14 @@ Se intentó utilizar JavaScript y Bootstrap sin necesidad de pasar por jQuery.
 
 *En la versión anterior se implementó estructura básica SASS y metodología BEM para clases.*
 
+*En esta versión se añadieron funciones que calculan información estadística sobre el clima de los planetas*
+
 ---
 
 ## 🚀 Demo
 
-🔗 Repositorio: https://github.com/bernoulli314/weather-frontend-m3
-🌐 Página web: https://bernoulli314.github.io/weather-frontend-m3/
+🔗 Repositorio: https://github.com/bernoulli314/weather-frontend-m4
+🌐 Página web: https://bernoulli314.github.io/weather-frontend-m4/
 
 ---
 

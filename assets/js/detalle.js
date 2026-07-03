@@ -136,9 +136,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         if (categoria.dias > 0) {
 
             categoriasHTML += `
-                <p class="weather-content__texto">
+                <h4 class="weather-content__texto">
                     ${categoria.nombre}: ${categoria.dias}
-                </p>
+                </h4>
             `;
 
         }

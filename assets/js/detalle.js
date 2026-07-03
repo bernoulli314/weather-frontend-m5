@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let max = parseInt(pronostico[0].temp);
         let min = parseInt(pronostico[0].temp);
 
+        let diasCongelados = 0;
+        let diasHabitables = 0;
+        let diasVolcanicos = 0;
+        let diasEstelares = 0;
+        let diasPlasma = 0;
+
         for (const dia of pronostico) {
             let temperatura = parseInt(dia.temp);
 
@@ -30,12 +36,53 @@ document.addEventListener("DOMContentLoaded", ()=>{
             if (temperatura < min){
                 min = temperatura
             }
+            if (temperatura <= -5){
+                diasCongelados++;
+            }
+            if (-5 < temperatura && temperatura <= 100){
+                diasHabitables++;
+            }
+            if (100 < temperatura && temperatura <= 2000){
+                diasVolcanicos++;
+            }
+            if (2000 < temperatura && temperatura <= 6000){
+                diasEstelares++;
+            }
+            if (6000 < temperatura){
+                diasPlasma++;
+            }
+        }
+
+        const categorias = {
+            "Temperaturas donde predominan hielos, océanos congelados y atmósferas extremadamente frías": diasCongelados,
+            "Zona compatible con agua líquida y condiciones similares a las de la Tierra.": diasHabitables,
+            "Rocas incandescentes, volcanismo extremo y ambientes incompatibles con la vida terrestre.": diasVolcanicos,
+            "Temperaturas comparables a las superficies de muchas estrellas, donde la materia comienza a comportarse de formas extremas.": diasEstelares,
+            "Materia completamente ionizada, radiación intensa y condiciones propias de estrellas muy calientes y fenómenos energéticos.": diasPlasma
+        };
+
+        let categoriaMayor = "";
+        let mayor = -1;
+
+        for (const categoria in categorias) {
+
+            if (categorias[categoria] > mayor) {
+                mayor = categorias[categoria];
+                categoriaMayor = categoria;
+            }
+
         }
 
         return {
             promedio: Math.round((suma / pronostico.length) * 100) / 100,
             tmax: max,
-            tmin: min
+            tmin: min,
+            diasCongelados: diasCongelados,
+            diasHabitables: diasHabitables,
+            diasVolcanicos: diasVolcanicos,
+            diasEstelares: diasEstelares,
+            diasPlasma: diasPlasma,
+            resumen: categoriaMayor
         };
     };
 

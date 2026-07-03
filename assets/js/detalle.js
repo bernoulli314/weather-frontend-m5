@@ -1,6 +1,4 @@
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
+document.addEventListener("DOMContentLoaded", ()=>{
 
     const parametros =
     new URLSearchParams(
@@ -15,6 +13,37 @@ document.addEventListener(
     const detalle = document.getElementById("detalle_planeta");
     const contenedor = document.getElementById("contenedor_tiempo_semanal");
     const zona_img = document.getElementById("img_planeta")
+
+    let estadisticasPlaneta = (pronostico) => {
+        let suma = 0;
+        let max = parseInt(pronostico[0].temp);
+        let min = parseInt(pronostico[0].temp);
+
+        for (const dia of pronostico) {
+            let temperatura = parseInt(dia.temp);
+
+            suma += temperatura;
+
+            if (temperatura > max){
+                max = temperatura
+            }
+            if (temperatura < min){
+                min = temperatura
+            }
+        }
+
+        return {
+            promedio: Math.round((suma / pronostico.length) * 100) / 100,
+            tmax: max,
+            tmin: min
+        };
+    };
+
+    let estadisticas = estadisticasPlaneta(planeta.pronostico);
+
+    console.log(estadisticas.promedio);
+    console.log(estadisticas.tmax);
+    console.log(estadisticas.tmin);
 
 
     if(planeta){

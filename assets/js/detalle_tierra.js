@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     const detalle = document.getElementById("detalle_planeta");
     const contenedor = document.getElementById("contenedor_tiempo_semanal");
+    const contenedor_estadisticas = document.getElementById("estadisticas_ciudad");
+    const contenedor_alertas = document.getElementById("alertas_ciudad");
     const zona_img = document.getElementById("img_planeta")
 
     let estadisticasPlaneta = (pronostico) => {
@@ -135,6 +137,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 let estadisticas = resultado.estadisticas;
                 let alertas = resultado.alertas;
 
+                console.log(alertas);
+
                 contenedor.innerHTML = "";
 
                 pronostico.forEach(dia => {
@@ -179,6 +183,59 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     contenedor.insertAdjacentHTML("beforeend", card);
 
                 });
+
+                contenedor_estadisticas.innerHTML = `
+
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                    <div class="col">
+                        <div class="card h-100 place-card text-center">
+                            <div class="card-body">
+                                <h4>🌡️ Promedio</h4>
+                                <h2>${estadisticas.promedio} °C</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 place-card text-center">
+                            <div class="card-body">
+                                <h4>🔺 Máxima</h4>
+                                <h2>${estadisticas.maxima} °C</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 place-card text-center">
+                            <div class="card-body">
+                                <h4>🔻 Mínima</h4>
+                                <h2>${estadisticas.minima} °C</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                `;
+                
+                contenedor_alertas.innerHTML = `
+
+                <div class="card place-card">
+
+                    <div class="card-body">
+
+                        <h4 class="mb-3">🚨 Alertas meteorológicas</h4>
+
+                        ${alertas.map(alerta => `
+                            <p class="mb-2">${alerta}</p>
+                        `).join("")}
+
+                    </div>
+
+                </div>
+
+                `;
 
             } catch (error) {
                 alert(error.message);

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    <title>🌎El Tiempo en tu Ciudad🌎</title>
+
+</head>
+
+<body>
+
+    <div class="container mt-4">
+
+        <!-- HEADER -->
+        <header class="mb-4 header">
+
+            <nav class="navbar navbar-expand-lg rounded header__nav">
+
+                <div class="container-fluid">
+
+                    <div class="d-flex flex-wrap justify-content-between align-items-center w-100">
+
+                        <!-- titular -->
+                        <a class="navbar-brand fw-bold text-center mb-2 btn header__titulo" href="index.html">
+                            🌎El Tiempo en tu Ciudad🌎
+                        </a>
+
+                        <!-- menu -->
+                        <div class="navbar-nav d-flex flex-row flex-wrap">
+
+                            <a class="mb-2 nav-link btn"
+                                href="index.html">
+                                Volver      
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
+        </header>
+
+
+        <!-- el main -->
+        <main class="weather-content">
+
+            <section>
+
+                <div>
+
+                    <div id="img_planeta"></div>
+                    <p class="text-end small weather-content__texto">FUENTE: Nasa</p>
+
+                    <div class="card-body">
+                        <div id="detalle_planeta"></div>
+                    </div>
+
+                </div>
+
+                <div class="card place-card my-4">
+
+                    <div class="card-body place-card__body">
+
+                        <h2 class="place-card__name text-center mb-4">
+                            🌤️ Consulta el clima de tu ciudad
+                        </h2>
+
+                        <div class="mb-3">
+
+                            <label for="ciudad" class="form-label weather-content__texto">
+                                Ciudad
+                            </label>
+
+                            <input
+                                type="text"
+                                id="ciudad"
+                                class="form-control bg-dark text-light border-secondary"
+                                placeholder="Ej: La Serena">
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label for="pais" class="form-label weather-content__texto">
+                                País
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pais"
+                                class="form-control bg-dark text-light border-secondary"
+                                placeholder="Ej: Chile">
+
+                        </div>
+
+                        <div class="text-center">
+
+                            <button
+                                id="btn-buscar"
+                                class="btn btn-outline-info place-card__link">
+
+                                Buscar clima
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- aqui van las cards -->
+                <div
+                    id="contenedor_tiempo_semanal"
+                    class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4 mt-3">
+
+                </div>
+
+            </section>
+
+
+            <!-- aside -->
+            <aside class="p-4 rounded shadow-sm mt-5 aside">
+
+                <h5 class="text-center aside__texto">
+                    *Planetas enanos
+                </h5>
+
+                <h3 class="text-danger mt-3 aside__titulo">
+                    Más información:
+                </h3>
+
+                <p class="aside__texto">
+                    Conoce más sobre tus planetas favoritos en
+                    <a
+                        href="https://science.nasa.gov/solar-system/planets/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        este enlace
+                    </a>
+                </p>
+
+                <a
+                    href="https://science.nasa.gov/solar-system/planets/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="d-block text-center">
+                    <img
+                        class="img-fluid aside__img"
+                        width="60"
+                        alt="NASA Logo"
+                        src="https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo.svg">
+                </a>
+            </aside>
+        </main>
+
+        <!-- footer -->
+        <footer class="text-center p-3 mt-5 rounded footer">
+
+            <div class="row">
+
+                <div class="col-sm-12 mb-3">
+
+                    <button
+                        class="btn btn--footer"
+                        onclick="window.scrollTo({
+                            top:0,
+                            behavior:'smooth'
+                        })">
+                        Volver arriba
+                    </button>
+
+                </div>
+
+            </div>
+
+            <p class="mb-0">
+                DERECHOS RESERVADOS 2026
+                <br>
+                CREADO POR BERNOULLI314
+            </p>
+
+        </footer>
+
+    </div>
+
+    <!-- bootstrap script js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- mi script -->
+    <script type="module" src="./assets/js/detalle_tierra.js"></script>
+
+</body>
+
+</html>

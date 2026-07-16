@@ -19,58 +19,115 @@ document.addEventListener("DOMContentLoaded", () => {
 
             lista.forEach(planeta=>{
 
-                const card = `
+                if (planeta.id === "tierra") {
 
-                <div class="col">
+                    const card = `
 
-                    <div class="card h-100 place-card">
+                    <div class="col">
 
-                        <div class="card-body place-card__body">
+                        <div class="card h-100 place-card">
 
-                            <h5 class="place-card__name">
+                            <div class="card-body place-card__body">
 
-                                ${planeta.nombre}
+                                <h5 class="place-card__name">
 
-                            </h5>
+                                    ${planeta.nombre}
 
-                            <div class="icono-planeta place-card__icon">
+                                </h5>
 
-                                ${planeta.icono}
+                                <div class="icono-planeta place-card__icon">
+
+                                    ${planeta.icono}
+
+                                </div>
+
+                                <div class="temperatura place-card__temp">
+
+                                    ${planeta.temp}
+
+                                </div>
+
+                                <p class="estado place-card__status">
+
+                                    ${planeta.estado}
+
+                                </p>
+
+                                <a
+                                href="detalle_tierra.html?id=${planeta.id}"
+                                class="btn btn-outline-info place-card__link">
+
+                                    Ver detalle
+
+                                </a>
 
                             </div>
-
-                            <div class="temperatura place-card__temp">
-
-                                ${planeta.temp}
-
-                            </div>
-
-                            <p class="estado place-card__status">
-
-                                ${planeta.estado}
-
-                            </p>
-
-                            <a
-                            href="detalle.html?id=${planeta.id}"
-                            class="btn btn-outline-info place-card__link">
-
-                                Ver detalle
-
-                            </a>
 
                         </div>
 
                     </div>
 
-                </div>
+                    `;
 
-                `;
+                    contenedor.insertAdjacentHTML(
+                        "beforeend",
+                        card
+                    );
+                } else{
 
-                contenedor.insertAdjacentHTML(
-                    "beforeend",
-                    card
-                );
+                    const card = `
+
+                    <div class="col">
+
+                        <div class="card h-100 place-card">
+
+                            <div class="card-body place-card__body">
+
+                                <h5 class="place-card__name">
+
+                                    ${planeta.nombre}
+
+                                </h5>
+
+                                <div class="icono-planeta place-card__icon">
+
+                                    ${planeta.icono}
+
+                                </div>
+
+                                <div class="temperatura place-card__temp">
+
+                                    ${planeta.temp}
+
+                                </div>
+
+                                <p class="estado place-card__status">
+
+                                    ${planeta.estado}
+
+                                </p>
+
+                                <a
+                                href="detalle.html?id=${planeta.id}"
+                                class="btn btn-outline-info place-card__link">
+
+                                    Ver detalle
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    `;
+
+                    contenedor.insertAdjacentHTML(
+                        "beforeend",
+                        card
+                    );
+                    }
 
             });
 

@@ -1,4 +1,4 @@
-const planetas_ss = [
+export const planetas_ss = [
 
     {
         id:"mercurio",
@@ -353,7 +353,7 @@ const planetas_ss = [
 
 ];
 
-const exoplanetas = [
+export const exoplanetas = [
 
     {
         id:"proxima-centauri-b",
@@ -492,9 +492,9 @@ const exoplanetas = [
 
 ];
 
-const todosLosPlanetas = [
+export const todosLosPlanetas = [
     ...planetas_ss,
     ...exoplanetas
 ];
 
-let planetasActuales = todosLosPlanetas;
+export let planetasActuales = todosLosPlanetas;

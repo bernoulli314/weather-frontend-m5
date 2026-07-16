@@ -1,3 +1,10 @@
+import {
+    planetas_ss,
+    exoplanetas,
+    todosLosPlanetas,
+    planetasActuales
+} from "./utils/datos.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("contenedor_planetas");
 

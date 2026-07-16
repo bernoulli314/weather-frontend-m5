@@ -1,3 +1,12 @@
+import {
+    planetas_ss,
+    exoplanetas,
+    todosLosPlanetas,
+    planetasActuales
+} from "./utils/datos.js";
+
+import WeatherApp from "./classes/WeatherApp.js";
+
 document.addEventListener("DOMContentLoaded", ()=>{
 
     const parametros =
